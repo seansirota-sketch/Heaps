@@ -55,7 +55,7 @@ public class experiment {
 
         long startTime = System.nanoTime(); // Starting of the experiment
 
-        Heap.HeapNode[] pointers = new Heap.HeapNode[permArr.length + 1];
+        Heap.HeapItem[] pointers = new Heap.HeapItem[permArr.length + 1];
         Heap heap = new Heap(lazyMelds, lazyDecreaseKeys);
 
         int BeforeOperation = 0;
@@ -108,7 +108,7 @@ public class experiment {
     public static int[] exp2(int[] permArr, boolean lazyMelds, Boolean lazyDecreaseKeys, Boolean verbos) {
         long startTime = System.nanoTime(); // Starting of the experiment
 
-        Heap.HeapNode[] pointers = new Heap.HeapNode[permArr.length + 1];
+        Heap.HeapItem[] pointers = new Heap.HeapItem[permArr.length + 1];
         Heap heap = new Heap(lazyMelds, lazyDecreaseKeys);
 
         int BeforeOperation = 0;
@@ -174,7 +174,7 @@ public class experiment {
     public static int[] exp3(int[] permArr, boolean lazyMelds, Boolean lazyDecreaseKeys, Boolean verbos) {
         long startTime = System.nanoTime(); // Starting of the experiment
 
-        Heap.HeapNode[] pointers = new Heap.HeapNode[permArr.length + 1];
+        Heap.HeapItem[] pointers = new Heap.HeapItem[permArr.length + 1];
         Heap heap = new Heap(lazyMelds, lazyDecreaseKeys);
 
         int BeforeOperation = 0;

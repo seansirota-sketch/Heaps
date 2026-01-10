@@ -2012,7 +2012,7 @@ successive linking
 \end_layout
 
 \begin_layout Standard
-בנוסף לתיאור ערמה כללי השתמשנו בשדות: מצביע למינימום שמאפשר לנו גישה לערימה,
+בנוסף לתיאור ערמה כללית השתמשנו בשדות: מצביע למינימום שמאפשר לנו גישה לערימה,
  כמות הצמתים בערמה
 \family roman
 \series medium
@@ -2100,9 +2100,13 @@ heapifyCost
 \end_layout
 
 \begin_layout Standard
-על מנת לתאר צומת בערמה השתמשנו בשדות: מפתח, מידע, מצביע לילד, מצביע לאיבר
- הבא, מצביע לאיבר קודם, מצביע להורה, דרגה של צומת ושדה בוליאני שמעיד האם
- האיבר מסומן.
+על מנת לתאר צומת בערמה השתמשנו בשדות: מצביע לילד, מצביע לאיבר הבא, מצביע
+ לאיבר קודם, מצביע להורה, דרגה של צומת ושדה בוליאני שמעיד האם האיבר מסומן.
+ את המפתח והערך של הצומת שמרנו במחלקה 
+\begin_inset Formula $\text{HeapItem}$
+\end_inset
+
+ כאשר היא מופיע כשדה של צומת ומקשורת לצומת.
 \end_layout
 
 \begin_layout Subsection*
@@ -2113,6 +2117,14 @@ heapifyCost
 
 \series bold
 \begin_inset Formula $\text{\textbf{Heap(lazyMelds,DecreaseKeys)}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+סיבוכיות: 
+\begin_inset Formula $O(1)$
 \end_inset
 
 
@@ -2178,6 +2190,26 @@ lazyMelds, lazyDecreaseKeys
 
 \begin_layout Standard
 ערימה בינומית, ערימה בינומית עצלה, ערימת פיבונאצ'י ערימה בינומית עם ניתוקים.
+\end_layout
+
+\begin_layout Standard
+בבנאי אנחנו מאתחילים את השדות:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $\text{size},\text{numTrees},\text{totalMarkedNodes},\text{totalLinks},\text{totalCuts},\text{totalHeapifyCosts}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+להיות 
+\begin_inset Formula $0$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -2424,7 +2456,7 @@ status open
 
 
 \backslash
-vspace{1.5em}
+newpage
 \end_layout
 
 \end_inset
@@ -2442,7 +2474,207 @@ vspace{1.5em}
 \end_layout
 
 \begin_layout Standard
-על מנת למחוק את איבר המינימום מהערמה אנחנו מבצעים את השלבים הבא:
+סיבוכיות:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="5">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\bar under
+ערימה בינומית עם ניתוקים
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\bar under
+ערימת פיבונאצ'י
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\bar under
+ערימה בינומית עצלה
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\bar under
+ערימה בינומית
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $O(n)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $O(n)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $O(n)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $O(\log n)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\text{WC}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $O(\log n)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $O(\log n)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $O(\log n)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $O(\log n)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\text{Amortized}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+על מנת למחוק את איבר המינימום מהערמה אנחנו מבצעים את השלבים הבאים:
 \end_layout
 
 \begin_layout Standard
@@ -2513,11 +2745,1327 @@ successive linking
 \uwave default
 \noun default
 \color inherit
-- 
+- יכול לקחת ככמות הצמתים שיש בערמה.
+ במקרה הגרוע ראינו כי בערמת פיבונאצי וערמה בינומית עצלה פעולה זו יכולה לקחת
+ 
+\begin_inset Formula $O(n)$
+\end_inset
+
+ אך בזמן לשיעורין עדיין ישאר 
 \begin_inset Formula $O(\log n)$
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{1.5em}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Formula $\text{\textbf{cut(x,y)}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+סיבוכיות:
+\end_layout
+
+\begin_layout Standard
+אם 
+\begin_inset Formula $\text{lazymeld=True}$
+\end_inset
+
+ - 
+\begin_inset Formula $O(1)$
+\end_inset
+
+, ואם אם 
+\begin_inset Formula $\text{lazymeld=False}$
+\end_inset
+
+ - 
+\begin_inset Formula $O\log n)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+פעולה זו מקבלת שני צמתים ומנתקת את צומת 
+\begin_inset Formula $x$
+\end_inset
+
+ מהצומת 
+\begin_inset Formula $y$
+\end_inset
+
+ ואז מוסיפה את 
+\begin_inset Formula $x$
+\end_inset
+
+ כשורש לערמה באמצעות 
+\begin_inset Formula $\text{meld}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+הניתוק של הצומת 
+\begin_inset Formula $x$
+\end_inset
+
+ מהצומת 
+\begin_inset Formula $y$
+\end_inset
+
+ נעשה על ידי שינוי מצביעים ולכן העלות של הפעולה היא כעלות של פעולת ה
+\begin_inset Formula $\text{meld}$
+\end_inset
+
+.
+ נשים לב שאם 
+\begin_inset Formula $\text{lazymeld=True}$
+\end_inset
+
+ אזי הפעולה נעשה ב
+\begin_inset Formula $O(1)$
+\end_inset
+
+ ואם 
+\begin_inset Formula $\text{lazymeld=False}$
+\end_inset
+
+ אזי אנחנו נבצע 
+\lang english
+
+\begin_inset Formula $\text{successive linking}$
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ולכן העלות תהיה 
+\begin_inset Formula $O(\log n)$
+\end_inset
+
+ מכיוון שכאשר 
+\begin_inset Formula $\text{lazymeld=False}$
+\end_inset
+
+ אזי אנחנו שומרים על האינווריאנטה בה כמות השורשים חסומה על ידי 
+\begin_inset Formula $\log n$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{1.5em}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Formula $\text{\textbf{cascadingCut(y)}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+סיבוכיות: 
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\bar under
+סיבוכיות
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $O(\log n)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\text{WC}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $O(1)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\text{Amortized}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+פעולה זו מבצעת 
+\begin_inset Formula $\text{cascadingCut}$
+\end_inset
+
+ כפי שראינו בכיתה.
+ אנחנו מתחילים מצומת 
+\begin_inset Formula $y$
+\end_inset
+
+ וכל עוד ההורה של 
+\begin_inset Formula $y$
+\end_inset
+
+ הוא צומת מסומן אז מנתקים את 
+\begin_inset Formula $y$
+\end_inset
+
+ מהערמה וממשיכים באופן רקורסבי להורה של 
+\begin_inset Formula $y$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+במקרה הגרוע הסיבוכיות של הפעולה חסומה על ידי עומק הצומת 
+\begin_inset Formula $y$
+\end_inset
+
+, כלומר 
+\begin_inset Formula $O(\log n)$
+\end_inset
+
+ ובכיתה הראנו כי העלות 
+\begin_inset Formula $\text{Amortized}$
+\end_inset
+
+ הינה 
+\begin_inset Formula $O(1)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{1.5em}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Formula $\text{\textbf{decreaseKey(x,d)}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+סיבוכיות: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\bullet$
+\end_inset
+
+ 
+\begin_inset Formula $\text{lazyDecreaseKey=false}$
+\end_inset
+
+ - 
+\begin_inset Formula $O(\log n)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\bullet$
+\end_inset
+
+ 
+\begin_inset Formula $\text{lazyDecreaseKey=True}$
+\end_inset
+
+ - העלות במקרה הגרוע הינה 
+\begin_inset Formula $O(\log n)$
+\end_inset
+
+ ו
+\begin_inset Formula $\text{Amortized}$
+\end_inset
+
+ העלות הינה 
+\begin_inset Formula $O(1)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+אם 
+\begin_inset Formula $\text{lazyDecreaseKey=false}$
+\end_inset
+
+ אז אנחנו מורידים את ערך המפתח ומבצעים את פעולת ה
+\begin_inset Formula $\text{HeapifyUp}$
+\end_inset
+
+ שהעלות שלה הינה 
+\begin_inset Formula $O(\log n)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+אם 
+\begin_inset Formula $\text{lazyDecreaseKey=True}$
+\end_inset
+
+ אז אנחנו מורידים את ערך המפתח ואז משווים אותו להורה.
+ אם הוא קטן מההורה אז מבצעים 
+\begin_inset Formula $\text{cut}$
+\end_inset
+
+ וְ 
+\begin_inset Formula $\text{cascadingCut}$
+\end_inset
+
+ ולבסוך מעדכנים את המינימום בהתאם לצורך.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{1.5em}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Formula $\text{\textbf{delete(x)}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+סיבוכיות: 
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="5">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\bar under
+ערימה בינומית עם ניתוקים
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\bar under
+ערימת פיבונאצ'י
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\bar under
+ערימה בינומית עצלה
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\bar under
+ערימה בינומית
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $O(n)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $O(n)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $O(n)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $O(\log n)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\text{WC}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $O(\log n)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $O(\log n)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $O(\log n)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $O(\log n)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\text{Amortized}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+אנו מבצעים את הפעולה 
+\begin_inset Formula $\text{delete}$
+\end_inset
+
+ באמצעות 
+\begin_inset Formula $\text{decreseKey}$
+\end_inset
+
+ וְ 
+\begin_inset Formula $\text{deleteMin}$
+\end_inset
+
+ ולכן הסיבוכיות בהתאם לסיבוכיות של פעולות אלה.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+newpage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Formula $\text{\textbf{meld(heap2)}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+סיבוכיות:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\bullet$
+\end_inset
+
+ 
+\begin_inset Formula $\text{lazyMelds=false}$
+\end_inset
+
+ - טבלת סיבוכיות מופיעה תחת הניתוח של 
+\begin_inset Formula $\text{consolidate}$
+\end_inset
+
+ )ראה למטה(
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\bullet$
+\end_inset
+
+ 
+\begin_inset Formula $\text{lazyMelds=True}$
+\end_inset
+
+ - 
+\begin_inset Formula $O(1)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+הפעולה ממומשת על ידי 
+\begin_inset Formula $\text{concat}$
+\end_inset
+
+ )שרשור הרשימות( ובמידה וְ 
+\begin_inset Formula $\text{lazyMelds=false}$
+\end_inset
+
+ אזי מבצעים גם 
+\begin_inset Formula $\text{consolidate}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+פעולת ה
+\begin_inset Formula $\text{concat}$
+\end_inset
+
+ לוקחת זמן קבוע ולכן הסיבוכיות בהתאם לפעולה 
+\begin_inset Formula $\text{consolidate}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{1.5em}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Formula $\text{\textbf{removeNode()}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+סיבוכיות: 
+\begin_inset Formula $O(1)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+פעולה זו מוחקת מסירה מהערמה את השורש של המינימום ומחיזרה ערמה חדשה רק עם
+ המינימום.
+ פעולה זו היא פעולת עזר לפונקציה 
+\begin_inset Formula $\text{consolidate}$
+\end_inset
+
+.
+ הסרת המינימום נעשה על ידי שינוי מצביעים ולכן הסיבוכיות של פעולה זו קבועה.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{1.5em}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Formula $\text{\textbf{concat(H)}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+סיבוכיות: 
+\begin_inset Formula $O(1)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+פעולה זו מקבלת ערמה נוספת ומשרשת את שתי הערמות לערמה אחת.
+ השרשור נעשה על ידי שינוי מצביעים ולאחר מכן השוואת המינימום לקביעת המינימום
+ של הערמה המשורשת.
+ שינוי מבצביעים והשוואת מינימוםמים לוקחים זמן קבוע ולכן סיבוכיות הפעולה
+ הינה 
+\begin_inset Formula $O(1)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{1.5em}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Formula $\text{\textbf{consolidate()}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+סיבוכיות:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="5">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\bar under
+ערימה בינומית עם ניתוקים
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\bar under
+ערימת פיבונאצ'י
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\bar under
+ערימה בינומית עצלה
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\bar under
+ערימה בינומית
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $O(n)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $O(n)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $O(n)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $O(\log n)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\text{WC}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $O(\log n)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $O(\log n)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $O(\log n)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $O(\log n)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\text{Amortized}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+)
+\numeric on
+1
+\numeric off
+( תחילה אנחנו מאתחילים מערך עזר 
+\begin_inset Formula $D$
+\end_inset
+
+.
+ אנו יודעים כי הדרגה המקסימלית של צומת בערימת פיבונאצי עם 
+\begin_inset Formula $n$
+\end_inset
+
+ צמתים חסומה על ידי 
+\begin_inset Formula $D(n)\leq\floor{\log_{\varPhi}n}$
+\end_inset
+
+ ולכן מערך בגודל 
+\begin_inset Formula $\log_{\varPhi}n+1$
+\end_inset
+
+ מספיק לנו להבטיח שלא נחרוג מגבולות המערך.
+ נשים לב שחסם זה נכון גם עבור הערמות.
+\end_layout
+
+\begin_layout Standard
+)
+\numeric on
+2
+\numeric off
+( אנחנו עוברים על שורשי הערמה ובכל שלב עוברים על השורש 
+\begin_inset Formula $x$
+\end_inset
+
+, מסירים אותו מהערמה בעזרת המתודה 
+\begin_inset Formula $\text{removeNode}$
+\end_inset
+
+ )שלוקחת זמן קבוע( ושמים אותו במערך 
+\begin_inset Formula $D$
+\end_inset
+
+ לפי גודלו דרגתו.
+ כאשר 
+\begin_inset Formula $x$
+\end_inset
+
+ הוא עם דרגה 
+\begin_inset Formula $d$
+\end_inset
+
+ כך שכבר יש צומת בתא זה במערך אז אנחנו מבצעים 
+\begin_inset Formula $\text{linking}$
+\end_inset
+
+ וממשיכים לבדוק במיקום החדש במערך עד שמוצאים תא ריק.
+ 
+\end_layout
+
+\begin_layout Standard
+עלות שלב זה הינה 
+\begin_inset Formula $O(T_{0}+D(n))$
+\end_inset
+
+ כאשר 
+\begin_inset Formula $T_{0}$
+\end_inset
+
+ הינו מספר השורשים לפני האיחוד.
+\end_layout
+
+\begin_layout Standard
+)
+\numeric on
+3
+\numeric off
+( בשלב זה אנחנו מקבלים שהערמה שהתחלנו איתה ריקה ובידנו מערך 
+\begin_inset Formula $D$
+\end_inset
+
+ כך שבכל תא לא ריק במערך יש שורש מדרגה ייחודית.
+ אזי אנחנו עוברים על המערך ומאחדים את כלל השורשים לערמה אחת.
+ במהלך המעבר, מעדכנים את מצביע ה-
+\begin_inset Formula $min$
+\end_inset
+
+ של הערמה.
+\end_layout
+
+\begin_layout Standard
+עלות שלב זה הינה כגודל המערך כלומר 
+\begin_inset Formula $O(D(n))$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+נשים לב שבכל אחת מהערמות מלב הערימה הבינומית יכולים להיות לנו 
+\begin_inset Formula $O(n)$
+\end_inset
+
+ שורשים בשלב 
+\begin_inset Formula $2$
+\end_inset
+
+ שנצטרך לעבור עליהם ולכן ה
+\begin_inset Formula $WC$
+\end_inset
+
+ של כלל הערמות מלב הערימה הבינומית הינו 
+\begin_inset Formula $O(n)$
+\end_inset
+
+.
+ ערימה בינומית אוכפת סדר בכל רגע ולכן בכל רגע אין לנו יותר מ
+\begin_inset Formula $O(\log n)$
+\end_inset
+
+ שורשים בערמה.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{1.5em}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Formula $\text{\textbf{heapifyUp(x)}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+סיבוכיות: 
+\begin_inset Formula $O(\log n)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+המתודה מקבלת מצביע לצומת 
+\begin_inset Formula $x$
+\end_inset
+
+ ומבצעת עליו 
+\begin_inset Formula $\text{heapifyUp}$
+\end_inset
+
+, כלומר היא בודקת את ערך המפתח שלו ומפעפת אותו למעלה עד למקום המתאים לו.
+ הפעפוע למעלה נעשה באמצעות החלפת מציעים של ה
+\begin_inset Formula $\text{HeapItem}$
+\end_inset
+
+ ולכן זו עלותזו קבועה אך כמות הפעפוע חסומה על ידי עומק של הצומת 
+\begin_inset Formula $x$
+\end_inset
+
+ ולכן העלות הינה 
+\begin_inset Formula $O(\log n)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{1.5em}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+פעולות 
+\begin_inset Quotes sld
+\end_inset
+
+שמירת נתונים
+\begin_inset Quotes srd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+את המתודות:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $\text{size()},\text{numTrees()},\text{totalMarkedNodes()},\text{totalLinks()},\text{totalCuts()},\text{totalHeapifyCosts()}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+ערכים אלה מופיעים כשדות של הערמה.
+ תחילה אנחנו מעדכנים את כל הערכים להיות 
+\begin_inset Formula $0$
+\end_inset
+
+ ובמהלך הפעולות השונות מעדכנים ערכים אלה בהתאם.
+ כך שאנחנו מחזירים את כל הפעולות האלה ב
+\begin_inset Formula $O(1)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+הערה.
+
+\series default
+ הוספנו נספח שמאתר כיצד אנחנו שומרים על שדות אלה במהלך ביצוע הפעולות השונות.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+newpage
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Part*
@@ -2592,6 +4140,30 @@ successive linking
 \end_layout
 
 \begin_layout Standard
+נסמן ב
+\begin_inset Formula $m'$
+\end_inset
+
+ את כמות הצמתים המסומנים לאחר הפעולה.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{1em}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 נגדיר פונקציית פוטנציאל:
 \end_layout
 
@@ -2599,7 +4171,7 @@ successive linking
 \align center
 
 \lang english
-\begin_inset Formula $\Phi=\text{\#(number of Trees)+2\ensuremath{\cdot}\#(number of mark nodes)}$
+\begin_inset Formula $\Phi=\text{2\ensuremath{\cdot}\#(number of Trees)+3\ensuremath{\cdot}\#(number of mark nodes)}$
 \end_inset
 
 
@@ -2641,7 +4213,7 @@ successive linking
 
 \begin_layout Standard
 \align center
-\begin_inset Formula $\widehat{c}=c+\Phi_{After}-\Phi_{before}=(L+1)+(T_{1}+2m)-(T_{0}+2m)=$
+\begin_inset Formula $\widehat{c}=c+\Phi_{After}-\Phi_{before}=(L+1)+(2T_{1}+3m)-(2T_{0}+3m)=$
 \end_inset
 
 
@@ -2649,7 +4221,7 @@ successive linking
 
 \begin_layout Standard
 \align center
-\begin_inset Formula $L+1+T_{0}+1-L+2m-T_{0}-2m=2$
+\begin_inset Formula $L+1+2T_{0}+2-2L+3m-2T_{0}-3m\leq3-L\leq3$
 \end_inset
 
 
@@ -2661,6 +4233,22 @@ successive linking
 \end_inset
 
  לוקחת זמן קבוע לשיעורין.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{1em}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2718,7 +4306,7 @@ successive linking
 
 \begin_layout Standard
 \align center
-\begin_inset Formula $\widehat{c}=c+\Phi_{After}-\Phi_{before}=(c)+(T_{1}+2m')-(T_{0}+2m)\leq$
+\begin_inset Formula $\widehat{c}=c+\Phi_{After}-\Phi_{before}=(c)+(2T_{1}+3m')-(2T_{0}+3m)\leq$
 \end_inset
 
 
@@ -2726,7 +4314,7 @@ successive linking
 
 \begin_layout Standard
 \align center
-\begin_inset Formula $(c)+(T_{0}+c+2(m-c+1))-(T_{0}+2m)=2$
+\begin_inset Formula $(c)+(2T_{0}+2c+3(m-c+1))-(2T_{0}+3m)=3$
 \end_inset
 
 
@@ -2741,6 +4329,22 @@ successive linking
 \end_layout
 
 \begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{1em}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 
 \bar under
 ניתוח 
@@ -2751,35 +4355,78 @@ successive linking
 \end_layout
 
 \begin_layout Standard
-\align center
-\begin_inset Formula $\widehat{c}=c+\Phi_{After}-\Phi_{before}=(T_{0}+\log n-1+L)+(T_{1}+2m)-(T_{0}+2m)\leq$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\align center
-\begin_inset Formula $T_{0}+\log n+(T_{1}-T_{0})$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-וראינו בכיתה כי העלות לשיעורין של זה הינה 
-\begin_inset Formula $O(\log n)$
-\end_inset
-
-, שהרי 
-\begin_inset Formula $L\leq T_{0}+\log n$
-\end_inset
-
- ולכן 
-\begin_inset Formula $T_{0}+\log n-1+L\in O(\log n)$
+בפעולה זו אנחנו מוחקים את המינימום, מוסיפים את ילדיו כשורשים לעץ ואז עושים
+ פעולת 
+\begin_inset Formula $\text{consolidate}$
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Standard
+נשים לב שלאחר הפעולה מתקיים 
+\begin_inset Formula $T_{1}\leq\log n$
+\end_inset
+
+.
+ אזי: 
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $\widehat{c}=c+\Phi_{After}-\Phi_{before}=(T_{0}+\log n-1+L)+(2T_{1}+3m)-(2T_{0}+3m)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+נשים לב כי 
+\begin_inset Formula $L\leq T_{0}+\log n-1$
+\end_inset
+
+ שהרי כמות הלינקים יכולה להיות לכל היותר ככמות השורשים.
+ אזי:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $\leq\log n-1+\log n-1+2T_{1}=$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $2\log n+2T_{1}-2\leq5\log n$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+ולכן קיבלנו כי העלות לשיעורין של פעולה זו הינה 
+\begin_inset Formula $O(\log n)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{1em}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2798,6 +4445,22 @@ successive linking
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{1em}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2838,7 +4501,7 @@ status open
 
 
 \backslash
-vspace{2em}
+newpage
 \end_layout
 
 \end_inset
@@ -3024,7 +4687,7 @@ status open
 
 
 \backslash
-newpage
+vspace{2em}
 \end_layout
 
 \end_inset
@@ -3808,6 +5471,22 @@ newpage
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+newpage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection*
 סעיף
 \family roman
@@ -3837,6 +5516,25 @@ newpage
 \noun default
 \color inherit
 4
+\end_layout
+
+\begin_layout Standard
+בחרנו להשאיר את ערכים אינם מעוגלים מכיוון שערכים אשינם מעוגלים יכולים גם
+ להראות לנו מתי ערך מסויים נשאר קבוע בין הריצות השונות )לדוגמה גודל הערמה
+ בסוף( למתי ערך מסויים תלוי באופן הכנסת האיברים לערמה ובהוצאתם מהערמה.
+ לדוגמה בניסוי השני בערימת פיבואנצי קיבלנו שכמות העצים הממוצעת הייתה 
+\begin_inset Formula $2.95$
+\end_inset
+
+, דבר שמעיד שהייתה קריאה בה מספר העצים בסיום היה 
+\begin_inset Formula $2$
+\end_inset
+
+ ואינו קבוע 
+\begin_inset Formula $3$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -3940,7 +5638,7 @@ newpage
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $78$
+\begin_inset Formula $86.6$
 \end_inset
 
 
@@ -3952,7 +5650,7 @@ newpage
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $12$
+\begin_inset Formula $11.75$
 \end_inset
 
 
@@ -3964,7 +5662,7 @@ newpage
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $12$
+\begin_inset Formula $12.4$
 \end_inset
 
 
@@ -3976,7 +5674,7 @@ newpage
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $84$
+\begin_inset Formula $87.95$
 \end_inset
 
 
@@ -4117,7 +5815,7 @@ newpage
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $464653$
+\begin_inset Formula $464653.3$
 \end_inset
 
 
@@ -4153,7 +5851,7 @@ newpage
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $464653.05$
+\begin_inset Formula $464653.4$
 \end_inset
 
 
@@ -4462,7 +6160,7 @@ newpage
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $345$
+\begin_inset Formula $354.35$
 \end_inset
 
 
@@ -4474,7 +6172,7 @@ newpage
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $140$
+\begin_inset Formula $151.8$
 \end_inset
 
 
@@ -4486,7 +6184,7 @@ newpage
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $946$
+\begin_inset Formula $618.45$
 \end_inset
 
 
@@ -4498,7 +6196,7 @@ newpage
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $1047$
+\begin_inset Formula $737.95$
 \end_inset
 
 
@@ -4580,7 +6278,7 @@ newpage
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $3$
+\begin_inset Formula $2.9$
 \end_inset
 
 
@@ -4592,7 +6290,7 @@ newpage
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $3$
+\begin_inset Formula $2.95$
 \end_inset
 
 
@@ -4639,7 +6337,7 @@ newpage
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $1407475$
+\begin_inset Formula $1406696.3$
 \end_inset
 
 
@@ -4651,7 +6349,7 @@ newpage
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $748841$
+\begin_inset Formula $748852.55$
 \end_inset
 
 
@@ -4663,7 +6361,7 @@ newpage
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $7552492$
+\begin_inset Formula $7553000$
 \end_inset
 
 
@@ -4675,7 +6373,7 @@ newpage
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $7552736$
+\begin_inset Formula $7552642.65$
 \end_inset
 
 
@@ -4698,7 +6396,7 @@ newpage
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $748742$
+\begin_inset Formula $748749.8$
 \end_inset
 
 
@@ -4710,7 +6408,7 @@ newpage
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $748798$
+\begin_inset Formula $748809.5$
 \end_inset
 
 
@@ -4781,7 +6479,7 @@ newpage
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $4148996$
+\begin_inset Formula $4149773.3$
 \end_inset
 
 
@@ -4793,7 +6491,7 @@ newpage
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $4149385$
+\begin_inset Formula $4149614.25$
 \end_inset
 
 
@@ -4822,7 +6520,7 @@ newpage
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $40$
+\begin_inset Formula $39.25$
 \end_inset
 
 
@@ -4858,7 +6556,7 @@ newpage
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $35$
+\begin_inset Formula $35.7$
 \end_inset
 
 
@@ -4984,7 +6682,7 @@ newpage
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $250$
+\begin_inset Formula $249.4$
 \end_inset
 
 
@@ -4996,7 +6694,7 @@ newpage
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $82$
+\begin_inset Formula $78.9$
 \end_inset
 
 
@@ -5008,7 +6706,7 @@ newpage
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $49$
+\begin_inset Formula $36.25$
 \end_inset
 
 
@@ -5020,7 +6718,7 @@ newpage
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $132$
+\begin_inset Formula $113.25$
 \end_inset
 
 
@@ -5102,7 +6800,7 @@ newpage
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $9$
+\begin_inset Formula $8.95$
 \end_inset
 
 
@@ -5161,7 +6859,7 @@ newpage
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $993325$
+\begin_inset Formula $993349.7$
 \end_inset
 
 
@@ -5185,7 +6883,7 @@ newpage
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $464653$
+\begin_inset Formula $464653.35$
 \end_inset
 
 
@@ -5197,7 +6895,7 @@ newpage
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $464670$
+\begin_inset Formula $464671.15$
 \end_inset
 
 
@@ -5220,7 +6918,7 @@ newpage
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $528671$
+\begin_inset Formula $528696.15$
 \end_inset
 
 
@@ -5303,7 +7001,7 @@ newpage
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $373254$
+\begin_inset Formula $373306.25$
 \end_inset
 
 
@@ -5315,7 +7013,7 @@ newpage
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $373209$
+\begin_inset Formula $373198.05$
 \end_inset
 
 
@@ -5344,7 +7042,7 @@ newpage
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $30$
+\begin_inset Formula $29.9$
 \end_inset
 
 
@@ -5481,6 +7179,601 @@ newpage
 \end_inset
 
  על הפעולות הזולות.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+newpage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part*
+נספח
+\end_layout
+
+\begin_layout Subsection*
+שמירה על ערכים במבנה נתונים
+\end_layout
+
+\begin_layout Standard
+להלן פירוט של אופן שמירה של הערכים הבאים:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $\text{size},\text{numTrees},\text{totalMarkedNodes},\text{totalLinks},\text{totalCuts},\text{totalHeapifyCosts}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+אנחנו שומרים ערכים אלה מבלי לפגוע בסיבוכיות של שאר הפעולות.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{1.5em}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+שמירת הערך
+\begin_inset Formula $\text{\textbf{size}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\bullet$
+\end_inset
+
+ כאשר מבצעים 
+\begin_inset Formula $\text{insert}$
+\end_inset
+
+ בעת יצירת ערמת הסינגלטון שלנו נעדכן את ה
+\begin_inset Formula $\text{size}$
+\end_inset
+
+ שלו להיות 
+\begin_inset Formula $1$
+\end_inset
+
+ על מנת שבמהלך פעולת ה
+\begin_inset Formula $\text{concat}$
+\end_inset
+
+ נעלה את כמות הצמתים ב
+\begin_inset Formula $1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\bullet$
+\end_inset
+
+ בסוף פעולת ה
+\begin_inset Formula $\text{deleteMin}$
+\end_inset
+
+ נקטין את כמות הצמתים ב
+\begin_inset Formula $1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\bullet$
+\end_inset
+
+ נשים לב שפעולת ה
+\begin_inset Formula $\text{delete}$
+\end_inset
+
+ קוראת למתודה 
+\begin_inset Formula $\text{deleteMin}$
+\end_inset
+
+ ולכן אין צורך להוריד גם שם את גודל המערך.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\bullet$
+\end_inset
+
+ במהלך ביצוע 
+\begin_inset Formula $\text{concat}$
+\end_inset
+
+ נאחד את כמות הצמתים של שתי הערמות.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{1.5em}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+שמירת הערך
+\begin_inset Formula $\text{\textbf{numTrees}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\bullet$
+\end_inset
+
+ בפעולת 
+\begin_inset Formula $\text{concat}$
+\end_inset
+
+ מאחדים את כמות השורשים של שני העצים
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\bullet$
+\end_inset
+
+ בפעולת 
+\begin_inset Formula $\text{insert}$
+\end_inset
+
+ כאשר יוצרים את הערמה עם הצומת הבודדת מעדכנים את כמות השורשים של הערמה זו
+ להיות 
+\begin_inset Formula $1$
+\end_inset
+
+ - כך מובטח לנו שבמהלך ה
+\begin_inset Formula $\text{meld}$
+\end_inset
+
+ כאשר מבצעים 
+\begin_inset Formula $\text{concat}$
+\end_inset
+
+ אכן כמות השורשים תגדל ב
+\begin_inset Formula $1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\bullet$
+\end_inset
+
+ במהלך פעולת 
+\begin_inset Formula $\text{deleteMin}$
+\end_inset
+
+ אנחנו מוחקים את המינימום ומוסיפים לעץ את כל הילדים של המינימום.
+ אזי לפני קריאה לפעולת 
+\begin_inset Formula $\text{consolidate}$
+\end_inset
+
+ נעדכן את כמות השורשים להיות:
+\end_layout
+
+\begin_layout Standard
+- אם יש רק שורש אחד אז נעדכן את 
+\begin_inset Formula $\text{numOfTrees}$
+\end_inset
+
+ להיות 
+\begin_inset Formula $\text{MinchildNumOfTrees}$
+\end_inset
+
+ שזה פשוט ה
+\begin_inset Formula $rank$
+\end_inset
+
+ שלה מינימום.
+\end_layout
+
+\begin_layout Standard
+- אם יש יותר משורש אחד אז נעדכן את 
+\begin_inset Formula $\text{numOfTrees}$
+\end_inset
+
+ להיות 
+\begin_inset Formula $\text{numOfTrees+MinchildNumOfTrees-1}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\bullet$
+\end_inset
+
+ כאשר מבצעים 
+\begin_inset Formula $\text{linking}$
+\end_inset
+
+ במהלך ה
+\begin_inset Formula $\text{consolidate}$
+\end_inset
+
+ אז נוריד את כמות השורשים ב
+\begin_inset Formula $1$
+\end_inset
+
+.
+ בכל מקרה כאשר אנחנו בונים בחזרה את הערמה נספור את כמות השורשים )שזה כמות
+ התאים שאינם ריקים במערך(.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\bullet$
+\end_inset
+
+ כאשר אנחנו מבצעים 
+\begin_inset Formula $\text{cut}$
+\end_inset
+
+ אז אנחנו יוצרים ערמה מהצומת שאותו מנתקים ואז עושים 
+\begin_inset Formula $\text{meld}$
+\end_inset
+
+, נעדכן בערמה זו את כמות השורשים להיות 
+\begin_inset Formula $1$
+\end_inset
+
+ כדי שבעת ביצוע 
+\begin_inset Formula $\text{concat}$
+\end_inset
+
+ נוסיף 
+\begin_inset Formula $1$
+\end_inset
+
+ לכמות השורישם במערך.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{1.5em}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+שמירת הערך
+\begin_inset Formula $\text{\textbf{totalMarkdNodes}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\bullet$
+\end_inset
+
+ כאשר אנחנו מבצעים 
+\begin_inset Formula $\text{cut}$
+\end_inset
+
+ נוריד את כמות הצמתים המסומנים ב
+\begin_inset Formula $1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\bullet$
+\end_inset
+
+ כאשר אנחנו מבצעים 
+\begin_inset Formula $\text{cascadingCut}$
+\end_inset
+
+ ומגיעים לצומת שאינו מסומן ולפני השורש נסמן אותו ונעלה את הכמות הצמתים המסומנים
+ ב
+\begin_inset Formula $1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{1.5em}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+שמירת הערך
+\begin_inset Formula $\text{\textbf{totalLinks}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\bullet$
+\end_inset
+
+ אנו מבצעים 
+\begin_inset Formula $\text{linking}$
+\end_inset
+
+ רק במהלך המתודה 
+\begin_inset Formula $\text{cosolidate}$
+\end_inset
+
+ ולכן לאחר ביצוע פעולת 
+\begin_inset Formula $\text{link}$
+\end_inset
+
+ נעלה את כמות ה
+\begin_inset Formula $\text{link}$
+\end_inset
+
+ים ב
+\begin_inset Formula $1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\bullet$
+\end_inset
+
+ במהלך הפעולה 
+\begin_inset Formula $\text{concat}$
+\end_inset
+
+ נחבר את כמות ה
+\begin_inset Formula $\text{link}$
+\end_inset
+
+ים של שתי הערמות על מנת לשמור את ההיסטוריה של כמות ה
+\begin_inset Formula $\text{link}$
+\end_inset
+
+ים.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+הערה.
+
+\series default
+ מבחינת 
+\begin_inset Formula $\text{design}$
+\end_inset
+
+ ייתכן שהיה יותר נכון לעדכן את כמות ה
+\begin_inset Formula $\text{link}$
+\end_inset
+
+ים בתחילת המתודה 
+\begin_inset Formula $\text{link}$
+\end_inset
+
+ אך מתודה זו נמצאת תחת המחלקה 
+\begin_inset Formula $\text{HeapNode}$
+\end_inset
+
+ ולכן בחרנו לעקוב אחר כמות ה
+\begin_inset Formula $\text{link}$
+\end_inset
+
+ים בדרך עקיפה.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{1.5em}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+שמירת הערך
+\begin_inset Formula $\text{\textbf{totalCuts}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\bullet$
+\end_inset
+
+ במתודה 
+\begin_inset Formula $\text{cut}$
+\end_inset
+
+ נעלה את כמות החיתוכים ב
+\begin_inset Formula $1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\bullet$
+\end_inset
+
+ במהלך הפעולה 
+\begin_inset Formula $\text{concat}$
+\end_inset
+
+ נחבר את כמות החיתוכים של שתי הערמות על מנת לשמור את ההיסטוריה של כמות החיתוכים.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{1.5em}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+שמירת הערך
+\begin_inset Formula $\text{\textbf{totalHeapifyCosts}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\bullet$
+\end_inset
+
+ במתודה 
+\begin_inset Formula $\text{heapify}$
+\end_inset
+
+, הגדרנו משתנה 
+\begin_inset Formula $\text{count}$
+\end_inset
+
+ שסופר את כמות ה
+\begin_inset Formula $\text{heapifyUp}$
+\end_inset
+
+ שביצענו והמתודה 
+\begin_inset Formula $\text{heapify}$
+\end_inset
+
+ מחזירה את המונה הזה.
+ אזי, בעת קריאה למתודה 
+\begin_inset Formula $\text{heapify}$
+\end_inset
+
+ )שקוראת ב
+\begin_inset Formula $\text{decreaseKey}$
+\end_inset
+
+ כדי לבצע 
+\begin_inset Formula $\text{heapifyUp}$
+\end_inset
+
+ נעשה:
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\lang english
+\begin_inset Formula $\text{this.heapifyCosts += heapifyUp(x.node);}$
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\end_layout
+
+\begin_layout Standard
+וכך נשמור בכל קריאה ל
+\begin_inset Formula $\text{heapifyUp}$
+\end_inset
+
+ אנחנו מעדכנים את המונה הכללי.
 \end_layout
 
 \end_body

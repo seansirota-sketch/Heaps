@@ -2012,7 +2012,7 @@ successive linking
 \end_layout
 
 \begin_layout Standard
-בנוסף לתיאור ערמה כללית השתמשנו בשדות: מצביע למינימום שמאפשר לנו גישה לערימה,
+בנוסף לתיאור ערמה כללי השתמשנו בשדות: מצביע למינימום שמאפשר לנו גישה לערימה,
  כמות הצמתים בערמה
 \family roman
 \series medium
@@ -2100,13 +2100,9 @@ heapifyCost
 \end_layout
 
 \begin_layout Standard
-על מנת לתאר צומת בערמה השתמשנו בשדות: מצביע לילד, מצביע לאיבר הבא, מצביע
- לאיבר קודם, מצביע להורה, דרגה של צומת ושדה בוליאני שמעיד האם האיבר מסומן.
- את המפתח והערך של הצומת שמרנו במחלקה 
-\begin_inset Formula $\text{HeapItem}$
-\end_inset
-
- כאשר היא מופיע כשדה של צומת ומקשורת לצומת.
+על מנת לתאר צומת בערמה השתמשנו בשדות: מפתח, מידע, מצביע לילד, מצביע לאיבר
+ הבא, מצביע לאיבר קודם, מצביע להורה, דרגה של צומת ושדה בוליאני שמעיד האם
+ האיבר מסומן.
 \end_layout
 
 \begin_layout Subsection*
@@ -2456,7 +2452,7 @@ status open
 
 
 \backslash
-newpage
+vspace{1.5em}
 \end_layout
 
 \end_inset
@@ -3414,7 +3410,7 @@ status open
 
 
 \backslash
-newpage
+vspace{1.5em}
 \end_layout
 
 \end_inset
@@ -4501,7 +4497,7 @@ status open
 
 
 \backslash
-newpage
+vspace{2em}
 \end_layout
 
 \end_inset
@@ -5503,22 +5499,7 @@ newpage
 \end_layout
 
 \begin_layout Standard
-בחרנו להשאיר את ערכים אינם מעוגלים מכיוון שערכים אשינם מעוגלים יכולים גם
- להראות לנו מתי ערך מסויים נשאר קבוע בין הריצות השונות )לדוגמה גודל הערמה
- בסוף( למתי ערך מסויים תלוי באופן הכנסת האיברים לערמה ובהוצאתם מהערמה.
- לדוגמה בניסוי השני בערימת פיבואנצי קיבלנו שכמות העצים הממוצעת הייתה 
-\begin_inset Formula $2.95$
-\end_inset
-
-, דבר שמעיד שהייתה קריאה בה מספר העצים בסיום היה 
-\begin_inset Formula $2$
-\end_inset
-
- ואינו קבוע 
-\begin_inset Formula $3$
-\end_inset
-
-.
+בחרנו להשאיר ערכים אינם מעוגלים מכיוון שכ
 \end_layout
 
 \begin_layout Subsubsection*

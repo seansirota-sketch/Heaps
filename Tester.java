@@ -421,12 +421,12 @@ public class Tester {
         int[] arr = new int[]{1, 2, 5, 3, 4};
         System.out.println(Arrays.toString(arr));
 
-        Heap.HeapNode[] pointers = new Heap.HeapNode[6];
+        Heap.HeapItem[] pointers = new Heap.HeapItem[6];
 
         Heap heap = new Heap(false, false);
 
         for (int i : arr){
-            pointers[i] = heap.insert(i,"s").node;
+            pointers[i] = heap.insert(i,"s");
         }
         iterRoots(heap);
 
@@ -435,7 +435,8 @@ public class Tester {
         // heap.delete(pointers[8].item);
         // heap.delete(pointers[7].item);
         // heap.delete(pointers[6].item);
-        heap.delete(pointers[5].item);
+        heap.decreaseKey(pointers[5], Integer.MIN_VALUE);
+        //heap.delete(pointers[5].item);
         //heap.delete(pointers[4].item);
         //heap.delete(pointers[3].item);
         //heap.delete(pointers[2].item);
@@ -473,45 +474,45 @@ public class Tester {
         
         System.out.println("");
         System.out.println("Pointers Of 1");
-        System.out.println("key: " + String.valueOf(pointers[1].item.key));
-        System.out.println("next: " + String.valueOf(pointers[1].next.item.key));
-        System.out.println("prev: " + String.valueOf(pointers[1].prev.item.key));
-        System.out.println("child: " + String.valueOf(pointers[1].child.item.key));
-        System.out.println("mark: " + String.valueOf(pointers[1].mark));
+        System.out.println("key: " + String.valueOf(pointers[1].key));
+        System.out.println("next: " + String.valueOf(pointers[1].node.next.item.key));
+        System.out.println("prev: " + String.valueOf(pointers[1].node.prev.item.key));
+        System.out.println("child: " + String.valueOf(pointers[1].node.child.item.key));
+        System.out.println("mark: " + String.valueOf(pointers[1].node.mark));
 
-        System.out.println("");
-        System.out.println("Pointers Of 2");
-        System.out.println("key: " + String.valueOf(pointers[2].item.key));
-        System.out.println("next: " + String.valueOf(pointers[2].next.item.key));
-        System.out.println("prev: " + String.valueOf(pointers[2].prev.item.key));
-        System.out.println("child: " + String.valueOf(pointers[2].child.item.key));
-        System.out.println("parent: " + String.valueOf(pointers[2].parent.item.key));
-        System.out.println("mark: " + String.valueOf(pointers[2].mark));
+        // System.out.println("");
+        // System.out.println("Pointers Of 2");
+        // System.out.println("key: " + String.valueOf(pointers[2].item.key));
+        // System.out.println("next: " + String.valueOf(pointers[2].next.item.key));
+        // System.out.println("prev: " + String.valueOf(pointers[2].prev.item.key));
+        // System.out.println("child: " + String.valueOf(pointers[2].child.item.key));
+        // System.out.println("parent: " + String.valueOf(pointers[2].parent.item.key));
+        // System.out.println("mark: " + String.valueOf(pointers[2].mark));
 
-        System.out.println("");
-        System.out.println("Pointers Of 3");
-        System.out.println("key: " + String.valueOf(pointers[3].item.key));
-        System.out.println("next: " + String.valueOf(pointers[3].next.item.key));
-        System.out.println("prev: " + String.valueOf(pointers[3].prev.item.key));
-        //System.out.println("child: " + String.valueOf(pointers[3].child.item.key));
-        System.out.println("parent: " + String.valueOf(pointers[3].parent.item.key));
-        System.out.println("mark: " + String.valueOf(pointers[3].mark));
+        // System.out.println("");
+        // System.out.println("Pointers Of 3");
+        // System.out.println("key: " + String.valueOf(pointers[3].item.key));
+        // System.out.println("next: " + String.valueOf(pointers[3].next.item.key));
+        // System.out.println("prev: " + String.valueOf(pointers[3].prev.item.key));
+        // //System.out.println("child: " + String.valueOf(pointers[3].child.item.key));
+        // System.out.println("parent: " + String.valueOf(pointers[3].parent.item.key));
+        // System.out.println("mark: " + String.valueOf(pointers[3].mark));
 
-        System.out.println("");
-        System.out.println("Pointers Of 4");
-        System.out.println("key: " + String.valueOf(pointers[4].item.key));
-        System.out.println("next: " + String.valueOf(pointers[4].next.item.key));
-        System.out.println("prev: " + String.valueOf(pointers[4].prev.item.key));
-        //System.out.println("child: " + String.valueOf(pointers[4].child.item.key));
-        System.out.println("parent: " + String.valueOf(pointers[4].parent.item.key));
+        // System.out.println("");
+        // System.out.println("Pointers Of 4");
+        // System.out.println("key: " + String.valueOf(pointers[4].item.key));
+        // System.out.println("next: " + String.valueOf(pointers[4].next.item.key));
+        // System.out.println("prev: " + String.valueOf(pointers[4].prev.item.key));
+        // //System.out.println("child: " + String.valueOf(pointers[4].child.item.key));
+        // System.out.println("parent: " + String.valueOf(pointers[4].parent.item.key));
 
-        System.out.println("");
-        System.out.println("Pointers Of 5");
-        System.out.println("key: " + String.valueOf(pointers[5].item.key));
-        System.out.println("next: " + String.valueOf(pointers[5].next.item.key));
-        System.out.println("prev: " + String.valueOf(pointers[5].prev.item.key));
-        //System.out.println("child: " + String.valueOf(pointers[5].child.key));
-        System.out.println("parent: " + String.valueOf(pointers[5].parent.item.key));
+        // System.out.println("");
+        // System.out.println("Pointers Of 5");
+        // System.out.println("key: " + String.valueOf(pointers[5].item.key));
+        // System.out.println("next: " + String.valueOf(pointers[5].next.item.key));
+        // System.out.println("prev: " + String.valueOf(pointers[5].prev.item.key));
+        // //System.out.println("child: " + String.valueOf(pointers[5].child.key));
+        // System.out.println("parent: " + String.valueOf(pointers[5].parent.item.key));
 
         // System.out.println("");
         // System.out.println("Pointers Of 6");

@@ -76,12 +76,12 @@ public class HeapTest {
         int p = 0;
         Heap h = new Heap(false, false); // lazyDecreaseKeys = false -> heapifyUp
         h.insert(50, "A");
-        Heap.HeapNode node = h.insert(100, "B");
+        Heap.HeapNode node = h.insert(100, "B").node;
         h.deleteMin(); // גורם לקישור כך ש-100 יהיה בן של 50 (במימוש מסוים)
         h.insert(50, "A"); // הוספה חזרה
 
         int initialHeapify = h.totalHeapifyCosts();
-        h.decreaseKey(node, 80); // 100 -> 20. אמור לעלות מעל האבא
+        h.decreaseKey(node.item, 80); // 100 -> 20. אמור לעלות מעל האבא
         if (h.totalHeapifyCosts() >= initialHeapify)
             p += 10;
         return p;
@@ -125,9 +125,9 @@ public class HeapTest {
         int p = 0;
         Heap h = new Heap(true, true);
         h.insert(10, "A");
-        Heap.HeapNode target = h.insert(50, "B");
+        Heap.HeapNode target = h.insert(50, "B").node;
         h.insert(5, "C");
-        h.delete(target); // מוחק את 50
+        h.delete(target.item); // מוחק את 50
         if (h.size() == 2 && h.findMin().key == 5)
             p += 10;
         return p;

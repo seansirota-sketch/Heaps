@@ -2106,7 +2106,7 @@ heapifyCost
 \begin_inset Formula $\text{HeapItem}$
 \end_inset
 
- כאשר היא מופיע כשדה של צומת ומקשורת לצומת.
+ כאשר הוא מופיע כשדה של צומת ומקושרת לצומת.
 \end_layout
 
 \begin_layout Subsection*
@@ -2193,7 +2193,11 @@ lazyMelds, lazyDecreaseKeys
 \end_layout
 
 \begin_layout Standard
-בבנאי אנחנו מאתחילים את השדות:
+בבנאי אנחנו מאתחילים את השדות הבאים להיות 
+\begin_inset Formula $0$
+\end_inset
+
+:
 \end_layout
 
 \begin_layout Standard
@@ -2202,14 +2206,6 @@ lazyMelds, lazyDecreaseKeys
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-להיות 
-\begin_inset Formula $0$
-\end_inset
-
-.
 \end_layout
 
 \begin_layout Standard
@@ -2295,7 +2291,7 @@ vspace{1.5em}
 \uwave default
 \noun default
 \color inherit
-ולכן הסיבוכיות שלה היא בהתאם לסיבוכיות לסיבוכיות של 
+ולכן הסיבוכיות שלה היא בהתאם לסיבוכיות של 
 \lang english
 
 \begin_inset Formula $\text{meld}$
@@ -2681,12 +2677,8 @@ newpage
 \begin_inset Formula $(1)$
 \end_inset
 
- יצירה ערמה של ילדיו של המינימום - יכול לקחת כדרגה של הצומת המינמלית, שזה
+ יצירה ערמה של ילדיו של המינימום - יכול לקחת כדרגה של הצומת המינמלית.
  
-\begin_inset Formula $O(\log n)$
-\end_inset
-
-.
 \end_layout
 
 \begin_layout Standard
@@ -2745,7 +2737,7 @@ successive linking
 \uwave default
 \noun default
 \color inherit
-- יכול לקחת ככמות הצמתים שיש בערמה.
+- יכול לקחת כמות הצמתים שיש בערמה.
  במקרה הגרוע ראינו כי בערמת פיבונאצי וערמה בינומית עצלה פעולה זו יכולה לקחת
  
 \begin_inset Formula $O(n)$
@@ -2784,7 +2776,7 @@ vspace{1.5em}
 \end_layout
 
 \begin_layout Standard
-סיבוכיות:
+סיבוכיות: .
 \end_layout
 
 \begin_layout Standard
@@ -2796,12 +2788,12 @@ vspace{1.5em}
 \begin_inset Formula $O(1)$
 \end_inset
 
-, ואם אם 
+, ואם 
 \begin_inset Formula $\text{lazymeld=False}$
 \end_inset
 
  - 
-\begin_inset Formula $O\log n)$
+\begin_inset Formula $O(\log n)$
 \end_inset
 
 .
@@ -2932,91 +2924,65 @@ vspace{1.5em}
 \end_layout
 
 \begin_layout Standard
-\align center
-\begin_inset Tabular
-<lyxtabular version="3" rows="3" columns="2">
-<features tabularvalignment="middle">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
+\begin_inset Formula $\bullet$
+\end_inset
 
-\begin_layout Plain Layout
+ אם 
+\begin_inset Formula $\text{Lazymeld=false}$
+\end_inset
 
-\bar under
-סיבוכיות
+: 
+\begin_inset Formula $O(\log^{2}n)$
+\end_inset
+
+ 
 \end_layout
 
+\begin_layout Standard
+\begin_inset Formula $\quad$
 \end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
 
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
+מבנה הערימה מוגבל ולכן העומק לכל היותר 
 \begin_inset Formula $O(\log n)$
 \end_inset
 
+.
+ בכל קריאה רקרוסיבית אנו קוראים ל
+\begin_inset Formula $\text{cut}$
+\end_inset
 
+ שקוראת ל
+\begin_inset Formula $\text{meld}$
+\end_inset
+
+ ומפעילה 
+\lang english
+
+\begin_inset Formula $\text{successive linking}$
+\end_inset
+
+
+\lang hebrew
+ ולכן יכול לקחת 
+\begin_inset Formula $O(\log^{2}n)$
+\end_inset
+
+.
 \end_layout
 
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $\text{WC}$
+\begin_layout Standard
+\begin_inset Formula $\bullet$
 \end_inset
 
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $O(1)$
+ אם 
+\begin_inset Formula $\text{Lazymeld=true}$
 \end_inset
 
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $\text{Amortized}$
+ אזי מבנה הערימה אינו מוגבל ולכן העומק לכל היותר 
+\begin_inset Formula $O(n)$
 \end_inset
 
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
+ ולכן זו סיבוכיות הפעולה.
 \end_layout
 
 \begin_layout Standard
@@ -3046,26 +3012,6 @@ vspace{1.5em}
 \end_layout
 
 \begin_layout Standard
-במקרה הגרוע הסיבוכיות של הפעולה חסומה על ידי עומק הצומת 
-\begin_inset Formula $y$
-\end_inset
-
-, כלומר 
-\begin_inset Formula $O(\log n)$
-\end_inset
-
- ובכיתה הראנו כי העלות 
-\begin_inset Formula $\text{Amortized}$
-\end_inset
-
- הינה 
-\begin_inset Formula $O(1)$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
 \begin_inset ERT
 status open
 
@@ -3091,78 +3037,149 @@ vspace{1.5em}
 \end_layout
 
 \begin_layout Standard
-סיבוכיות: 
-\end_layout
-
-\begin_layout Standard
 \begin_inset Formula $\bullet$
 \end_inset
 
- 
-\begin_inset Formula $\text{lazyDecreaseKey=false}$
+ אם 
+\begin_inset Formula $\text{LazyDecreaseKey=true,\text{Lazymeld=false}}$
 \end_inset
 
- - 
-\begin_inset Formula $O(\log n)$
+ אז הסיבוכיות זמן במקרה הגרוע הינה: 
+\begin_inset Formula $O(\log^{2}n)$
 \end_inset
 
-
+:
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $\bullet$
+\begin_inset Formula $\quad$
 \end_inset
 
- 
-\begin_inset Formula $\text{lazyDecreaseKey=True}$
+במקרה הגרוע סיבוכיות זמן הינה כמות החיתוכים 
+\begin_inset Formula $\times$
 \end_inset
 
- - העלות במקרה הגרוע הינה 
+ זמן ריצה 
+\begin_inset Formula $\text{WC}$
+\end_inset
+
+ של פעולת 
+\begin_inset Formula $\text{meld}$
+\end_inset
+
+.
+ במקרה הנ
+\begin_inset Quotes srd
+\end_inset
+
+ל, מכיוון שאנו מבצעים 
+\begin_inset Formula $\text{consolidate}$
+\end_inset
+
+ אז מבני הערימה נשאר מוגבל ולכן כמות החיתוכים חסומה על ידי 
 \begin_inset Formula $O(\log n)$
 \end_inset
 
- ו
-\begin_inset Formula $\text{Amortized}$
+ ומשך זמן ריצה 
+\begin_inset Formula $\text{WC}$
 \end_inset
 
- העלות הינה 
-\begin_inset Formula $O(1)$
+ של 
+\begin_inset Formula $\text{meld}$
+\end_inset
+
+ הינו 
+\begin_inset Formula $O(\log n)$
 \end_inset
 
 .
 \end_layout
 
 \begin_layout Standard
-אם 
-\begin_inset Formula $\text{lazyDecreaseKey=false}$
+\begin_inset Formula $\bullet$
 \end_inset
 
- אז אנחנו מורידים את ערך המפתח ומבצעים את פעולת ה
+ אם 
+\begin_inset Formula $\text{LazyDecreaseKey=true,\text{Lazymeld=true}}$
+\end_inset
+
+ אז הסיבוכיות זמן במקרה הגרוע הינה: 
+\begin_inset Formula $O(n)$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\quad$
+\end_inset
+
+סיבוכיות הזמן היא פשוט כמות החיתוכים.
+ מכיוון שמבנה הערימה אינו מוגבל, כמות החיתוכים חסומה על ידי 
+\begin_inset Formula $O(n)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\bullet$
+\end_inset
+
+ אם 
+\begin_inset Formula $\text{LazyDecreaseKey=false},\text{Lazymeld=false}$
+\end_inset
+
+ אז הסיבוכיות זמן במקרה הגרוע הינה: 
+\begin_inset Formula $O(logn)$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\quad$
+\end_inset
+
+במקרה זה אנו מבצעים פעולת 
 \begin_inset Formula $\text{HeapifyUp}$
 \end_inset
 
- שהעלות שלה הינה 
+ ומבנה הערימה מוגבל ולכן הגובה חסום על ידי 
 \begin_inset Formula $O(\log n)$
 \end_inset
 
-.
+
 \end_layout
 
 \begin_layout Standard
-אם 
-\begin_inset Formula $\text{lazyDecreaseKey=True}$
+\begin_inset Formula $\bullet$
 \end_inset
 
- אז אנחנו מורידים את ערך המפתח ואז משווים אותו להורה.
- אם הוא קטן מההורה אז מבצעים 
-\begin_inset Formula $\text{cut}$
+ אם 
+\begin_inset Formula $\text{LazyDecreaseKey=false},\text{Lazymeld=true}$
 \end_inset
 
- וְ 
-\begin_inset Formula $\text{cascadingCut}$
+ אז הסיבוכיות זמן במקרה הגרוע הינה: 
+\begin_inset Formula $O(n)$
 \end_inset
 
- ולבסוך מעדכנים את המינימום בהתאם לצורך.
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\quad$
+\end_inset
+
+במקרה זה אנו מבצעים פעולת 
+\begin_inset Formula $\text{HeapifyUp}$
+\end_inset
+
+ ומבנה הערימה אינו מוגבל ולכן הגובה חסום על ידי 
+\begin_inset Formula $O(n)$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -3264,7 +3281,7 @@ vspace{1.5em}
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $O(n)$
+\begin_inset Formula $O(\log^{2}n)$
 \end_inset
 
 
@@ -3919,7 +3936,7 @@ vspace{1.5em}
 \begin_inset Formula $WC$
 \end_inset
 
- של כלל הערמות מלב הערימה הבינומית הינו 
+ של כלל הערמות מלבד הערימה הבינומית הינו 
 \begin_inset Formula $O(n)$
 \end_inset
 
@@ -3958,10 +3975,36 @@ vspace{1.5em}
 
 \begin_layout Standard
 סיבוכיות: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\bullet$
+\end_inset
+
+ אם 
+\begin_inset Formula $\text{Lazymeld=false}$
+\end_inset
+
+ אזי מבנה הערימה מוגבל ולכן העומק מוגבל ולכן הגובה חסום על ידי 
 \begin_inset Formula $O(\log n)$
 \end_inset
 
+, וזו סיבוכיות הפעולה.
+\end_layout
 
+\begin_layout Standard
+\begin_inset Formula $\bullet$
+\end_inset
+
+ אם 
+\begin_inset Formula $\text{Lazymeld=true}$
+\end_inset
+
+ אזי מבנה הערימה אינו מוגבל ולכן העומק חסום על ידי 
+\begin_inset Formula $O(n)$
+\end_inset
+
+, וזו סיבוכיות הפעולה.
 \end_layout
 
 \begin_layout Standard
@@ -3973,17 +4016,13 @@ vspace{1.5em}
 \begin_inset Formula $\text{heapifyUp}$
 \end_inset
 
-, כלומר היא בודקת את ערך המפתח שלו ומפעפת אותו למעלה עד למקום המתאים לו.
+, כלומר היא בודקת את ערך המפתח שלו ומבעבעת אותו למעלה עד למקום המתאים לו.
  הפעפוע למעלה נעשה באמצעות החלפת מציעים של ה
 \begin_inset Formula $\text{HeapItem}$
 \end_inset
 
- ולכן זו עלותזו קבועה אך כמות הפעפוע חסומה על ידי עומק של הצומת 
+ ולכן זו עלות זו קבועה אך כמות הפעפוע חסומה על ידי עומק של הצומת 
 \begin_inset Formula $x$
-\end_inset
-
- ולכן העלות הינה 
-\begin_inset Formula $O(\log n)$
 \end_inset
 
 .
@@ -4148,6 +4187,34 @@ newpage
 \end_layout
 
 \begin_layout Standard
+נשים לב כי מכיוון 
+\lang english
+
+\begin_inset Formula $\text{LazyMeld=True}$
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ אנחנו שומרים על כך שכמות השורשים חסומה על ידי 
+\begin_inset Formula $\log n$
+\end_inset
+
+ לאחר כל פעולה.
+\end_layout
+
+\begin_layout Standard
 \begin_inset ERT
 status open
 
@@ -4171,7 +4238,7 @@ vspace{1em}
 \align center
 
 \lang english
-\begin_inset Formula $\Phi=\text{2\ensuremath{\cdot}\#(number of Trees)+3\ensuremath{\cdot}\#(number of mark nodes)}$
+\begin_inset Formula $\Phi=\text{\ensuremath{(\log(n)+1)\cdot}\#(number of mark nodes)}$
 \end_inset
 
 
@@ -4204,16 +4271,25 @@ vspace{1em}
 \end_layout
 
 \begin_layout Standard
-אזי מתקיים כי 
-\begin_inset Formula $T_{1}=T_{0}+1-L$
+נשים לב כי מתקיים 
+\begin_inset Formula $L\leq T_{0}$
 \end_inset
 
- ולכן:
+ שהרי כמות ה
+\begin_inset Formula $\text{link}$
+\end_inset
+
+ים היא לכל היותר ככמות השורשים.
+ כמות הצמתים המסומנים אינה משתנה לאורך הפעולה.
+\end_layout
+
+\begin_layout Standard
+אזי: 
 \end_layout
 
 \begin_layout Standard
 \align center
-\begin_inset Formula $\widehat{c}=c+\Phi_{After}-\Phi_{before}=(L+1)+(2T_{1}+3m)-(2T_{0}+3m)=$
+\begin_inset Formula $\widehat{c}=c+\Phi_{After}-\Phi_{before}=(L+T_{0}+1)+(2T_{1}+(\log n+1)m)-((\log n+1)m)\leq$
 \end_inset
 
 
@@ -4221,7 +4297,7 @@ vspace{1em}
 
 \begin_layout Standard
 \align center
-\begin_inset Formula $L+1+2T_{0}+2-2L+3m-2T_{0}-3m\leq3-L\leq3$
+\begin_inset Formula $T_{0}+T_{0}+1+2\log n+\log n\cdot m+m-\log n\cdot m-m=4\log n+1\leq5\log n$
 \end_inset
 
 
@@ -4232,7 +4308,11 @@ vspace{1em}
 \begin_inset Formula $\text{Insert}$
 \end_inset
 
- לוקחת זמן קבוע לשיעורין.
+ לוקחת זמן של 
+\begin_inset Formula $O(\log n)$
+\end_inset
+
+ לשיעורין.
 \end_layout
 
 \begin_layout Standard
@@ -4271,18 +4351,6 @@ vspace{1em}
 \end_layout
 
 \begin_layout Standard
-נקבל שלאחר הפעולה נוספו 
-\begin_inset Formula $c$
-\end_inset
-
- עצים חדשים לערמה, לכן 
-\begin_inset Formula $T_{1}=T_{0}+c$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
 נסמן ב
 \begin_inset Formula $m'$
 \end_inset
@@ -4301,12 +4369,61 @@ vspace{1em}
 \end_inset
 
 .
- אזי:
+\end_layout
+
+\begin_layout Standard
+אחרי כל חיתוך אנחנו מבצעים 
+\begin_inset Formula $\text{meld}$
+\end_inset
+
+ ולכן העלות הינה 
+\begin_inset Formula $c+T_{0}+L+(c-1)\log n$
+\end_inset
+
+ שהרי ה
+\begin_inset Formula $\text{meld}$
+\end_inset
+
+ הראשון יקח לנו ככמות העצים וכמות ה
+\begin_inset Formula $\text{link}$
+\end_inset
+
+ים שביצענו ולאחר מכן נקבל ערמה 
+\begin_inset Quotes sld
+\end_inset
+
+תקינה
+\begin_inset Quotes srd
+\end_inset
+
+ וכל 
+\begin_inset Formula $\text{meld}$
+\end_inset
+
+ יקח לנו 
+\begin_inset Formula $\text{\ensuremath{\log n}}$
+\end_inset
+
+.
+ כמו בפעולת 
+\begin_inset Formula $\text{insert}$
+\end_inset
+
+ נשים לב שמתקיים 
+\begin_inset Formula $L\leq T_{0}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+אזי:
 \end_layout
 
 \begin_layout Standard
 \align center
-\begin_inset Formula $\widehat{c}=c+\Phi_{After}-\Phi_{before}=(c)+(2T_{1}+3m')-(2T_{0}+3m)\leq$
+\begin_inset Formula $\widehat{c}=c+\Phi_{After}-\Phi_{before}=(c+T_{0}+L+(c-1)\log n)+((\log n+1)\cdot m')-((\log n+1)\cdot m)\leq$
 \end_inset
 
 
@@ -4314,7 +4431,23 @@ vspace{1em}
 
 \begin_layout Standard
 \align center
-\begin_inset Formula $(c)+(2T_{0}+2c+3(m-c+1))-(2T_{0}+3m)=3$
+\begin_inset Formula $(c+T_{0}+L+c\log n-\log n)+(\log n+1)(m-c+1)-((\log n+1)\cdot m)\leq$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $(c+T_{0}+T_{0}+c\log n-\log n)+(m\log n-c\log n+\log n+m-c+1)-(m\log n+m)=$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $2\log n+1\leq3\log n$
 \end_inset
 
 
@@ -4325,7 +4458,11 @@ vspace{1em}
 \begin_inset Formula $\text{decreaseKey}$
 \end_inset
 
- לוקחת זמן קבוע לשיעורין.
+ לוקחת זמן של 
+\begin_inset Formula $O(\log n)$
+\end_inset
+
+ לשיעורין.
 \end_layout
 
 \begin_layout Standard
@@ -4336,7 +4473,7 @@ status open
 
 
 \backslash
-vspace{1em}
+newpage
 \end_layout
 
 \end_inset
@@ -4364,17 +4501,12 @@ vspace{1em}
 \end_layout
 
 \begin_layout Standard
-נשים לב שלאחר הפעולה מתקיים 
-\begin_inset Formula $T_{1}\leq\log n$
-\end_inset
-
-.
- אזי: 
+אזי: 
 \end_layout
 
 \begin_layout Standard
 \align center
-\begin_inset Formula $\widehat{c}=c+\Phi_{After}-\Phi_{before}=(T_{0}+\log n-1+L)+(2T_{1}+3m)-(2T_{0}+3m)$
+\begin_inset Formula $\widehat{c}=c+\Phi_{After}-\Phi_{before}=(T_{0}+\log n-1+L)+(\log n+1)(m)-((\log n+1)m)$
 \end_inset
 
 
@@ -4391,15 +4523,7 @@ vspace{1em}
 
 \begin_layout Standard
 \align center
-\begin_inset Formula $\leq\log n-1+\log n-1+2T_{1}=$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\align center
-\begin_inset Formula $2\log n+2T_{1}-2\leq5\log n$
+\begin_inset Formula $\leq T_{0}+\log n-1+L\leq\log n+\log n-1+2\log n\leq5\log n$
 \end_inset
 
 
@@ -4501,7 +4625,7 @@ status open
 
 
 \backslash
-newpage
+vspace{2em}
 \end_layout
 
 \end_inset
@@ -4559,7 +4683,7 @@ newpage
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $O(1)$
+\begin_inset Formula $O(\log n)$
 \end_inset
 
 
@@ -4585,7 +4709,7 @@ newpage
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $O(1)$
+\begin_inset Formula $O(\log n)$
 \end_inset
 
 
@@ -4798,43 +4922,43 @@ newpage
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $O(1)$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $O(1)$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $O(1)$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
 \begin_inset Formula $O(\log n)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $O(1)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $O(1)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $O(1)$
 \end_inset
 
 
@@ -4860,7 +4984,7 @@ newpage
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $O(1)$
+\begin_inset Formula $O(\log n)$
 \end_inset
 
 
@@ -5211,43 +5335,43 @@ newpage
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $O(n)$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $O(n)$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $O(n)$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
 \begin_inset Formula $O(n\log n)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $O(n)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $O(n)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $O(n)$
 \end_inset
 
 
@@ -5297,7 +5421,7 @@ newpage
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $O(n)$
+\begin_inset Formula $O(n\log n)$
 \end_inset
 
 
@@ -5309,7 +5433,7 @@ newpage
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $O(n)$
+\begin_inset Formula $O(n\log n)$
 \end_inset
 
 
@@ -5321,7 +5445,7 @@ newpage
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $O(n)$
+\begin_inset Formula $O(n\log n)$
 \end_inset
 
 
@@ -5383,7 +5507,7 @@ newpage
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $O(n)$
+\begin_inset Formula $O(n\log n)$
 \end_inset
 
 
@@ -5407,7 +5531,7 @@ newpage
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $O(n)$
+\begin_inset Formula $O(n\log n)$
 \end_inset
 
 
@@ -5506,8 +5630,9 @@ newpage
 בחרנו להשאיר את ערכים אינם מעוגלים מכיוון שערכים אשינם מעוגלים יכולים גם
  להראות לנו מתי ערך מסויים נשאר קבוע בין הריצות השונות )לדוגמה גודל הערמה
  בסוף( למתי ערך מסויים תלוי באופן הכנסת האיברים לערמה ובהוצאתם מהערמה.
- לדוגמה בניסוי השני בערימת פיבואנצי קיבלנו שכמות העצים הממוצעת הייתה 
-\begin_inset Formula $2.95$
+ לדוגמה בניסוי השני בערימת בינומית עם ניתוקים קיבלנו שכמות העצים הממוצעת
+ הייתה 
+\begin_inset Formula $2.9$
 \end_inset
 
 , דבר שמעיד שהייתה קריאה בה מספר העצים בסיום היה 
@@ -5622,7 +5747,7 @@ newpage
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $86.6$
+\begin_inset Formula $341.05$
 \end_inset
 
 
@@ -5634,7 +5759,7 @@ newpage
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $11.75$
+\begin_inset Formula $183.95$
 \end_inset
 
 
@@ -5646,7 +5771,7 @@ newpage
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $12.4$
+\begin_inset Formula $204.2$
 \end_inset
 
 
@@ -5658,7 +5783,7 @@ newpage
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $87.95$
+\begin_inset Formula $338.6$
 \end_inset
 
 
@@ -5799,7 +5924,7 @@ newpage
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $464653.3$
+\begin_inset Formula $464653.45$
 \end_inset
 
 
@@ -5835,7 +5960,7 @@ newpage
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $464653.4$
+\begin_inset Formula $464653.6$
 \end_inset
 
 
@@ -6144,7 +6269,7 @@ newpage
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $354.35$
+\begin_inset Formula $995.8$
 \end_inset
 
 
@@ -6156,7 +6281,7 @@ newpage
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $151.8$
+\begin_inset Formula $569.7$
 \end_inset
 
 
@@ -6168,7 +6293,7 @@ newpage
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $618.45$
+\begin_inset Formula $2145.45$
 \end_inset
 
 
@@ -6180,7 +6305,7 @@ newpage
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $737.95$
+\begin_inset Formula $1949.85$
 \end_inset
 
 
@@ -6274,7 +6399,7 @@ newpage
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $2.95$
+\begin_inset Formula $3.35$
 \end_inset
 
 
@@ -6321,7 +6446,7 @@ newpage
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $1406696.3$
+\begin_inset Formula $1408273.9$
 \end_inset
 
 
@@ -6333,7 +6458,7 @@ newpage
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $748852.55$
+\begin_inset Formula $748826.25$
 \end_inset
 
 
@@ -6345,7 +6470,7 @@ newpage
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $7553000$
+\begin_inset Formula $7552355.5$
 \end_inset
 
 
@@ -6357,7 +6482,7 @@ newpage
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $7552642.65$
+\begin_inset Formula $7552542.85$
 \end_inset
 
 
@@ -6380,7 +6505,7 @@ newpage
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $748749.8$
+\begin_inset Formula $748766$
 \end_inset
 
 
@@ -6392,7 +6517,7 @@ newpage
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $748809.5$
+\begin_inset Formula $748783.6$
 \end_inset
 
 
@@ -6463,7 +6588,7 @@ newpage
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $4149773.3$
+\begin_inset Formula $4149366.35$
 \end_inset
 
 
@@ -6475,7 +6600,7 @@ newpage
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $4149614.25$
+\begin_inset Formula $4149491.6$
 \end_inset
 
 
@@ -6504,7 +6629,7 @@ newpage
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $39.25$
+\begin_inset Formula $39.6$
 \end_inset
 
 
@@ -6540,7 +6665,7 @@ newpage
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $35.7$
+\begin_inset Formula $35.5$
 \end_inset
 
 
@@ -6666,7 +6791,7 @@ newpage
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $249.4$
+\begin_inset Formula $360.5$
 \end_inset
 
 
@@ -6678,7 +6803,7 @@ newpage
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $78.9$
+\begin_inset Formula $149.8$
 \end_inset
 
 
@@ -6690,7 +6815,7 @@ newpage
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $36.25$
+\begin_inset Formula $150.1$
 \end_inset
 
 
@@ -6702,7 +6827,7 @@ newpage
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $113.25$
+\begin_inset Formula $368.55$
 \end_inset
 
 
@@ -6784,7 +6909,7 @@ newpage
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $8.95$
+\begin_inset Formula $10.55$
 \end_inset
 
 
@@ -6796,7 +6921,7 @@ newpage
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $8$
+\begin_inset Formula $11.7$
 \end_inset
 
 
@@ -6843,7 +6968,7 @@ newpage
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $993349.7$
+\begin_inset Formula $511602.75$
 \end_inset
 
 
@@ -6855,7 +6980,7 @@ newpage
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $929272$
+\begin_inset Formula $511576.75$
 \end_inset
 
 
@@ -6879,7 +7004,7 @@ newpage
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $464671.15$
+\begin_inset Formula $464670.5$
 \end_inset
 
 
@@ -6902,7 +7027,7 @@ newpage
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $528696.15$
+\begin_inset Formula $46951.75$
 \end_inset
 
 
@@ -6914,7 +7039,7 @@ newpage
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $464636$
+\begin_inset Formula $46944.45$
 \end_inset
 
 
@@ -6985,7 +7110,7 @@ newpage
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $373306.25$
+\begin_inset Formula $116927.2$
 \end_inset
 
 
@@ -6997,7 +7122,7 @@ newpage
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $373198.05$
+\begin_inset Formula $116856.7$
 \end_inset
 
 
@@ -7026,7 +7151,7 @@ newpage
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $29.9$
+\begin_inset Formula $18$
 \end_inset
 
 
@@ -7139,12 +7264,272 @@ newpage
 \end_layout
 
 \begin_layout Standard
-לפי התוצאות ניתן לראות הבדלים מהותיים בין זמני הריצה, מספרי חיבורים ועלות
- מקסימלית לפעולה.
+כן כפי שניתן לראות יש הבדלים בביצועים של הניסויים בין הערימות, ויש גם דמיון,
+ לפי המכנה המשותף בין שתי ערימות.
+\end_layout
+
+\begin_layout Standard
+למשל, בין ערימה בינומית עצלה וערימת פיבונאצ'י המשותף הוא – 
+\begin_inset Formula $\text{lazyMeld}$
+\end_inset
+
+, מה שגורם לעלות הפעולה המקסימלית להיות זהה )בפעולת ה-
+\begin_inset Formula $\text{deleteMin}$
+\end_inset
+
+ לאחר ההכנסות(.
+ באופן דומה כך גם הערימה הבינומית )במימוש שלה כפי שביצענו כאן ולא כפי שלמדנו
+ בכיתה( והערימה הבינומית עם הניתוקים זהות, עקב ה-
+\lang english
+
+\begin_inset Formula $\text{successive linking}$
+\end_inset
+
+
+\lang hebrew
+ שמבוצע בכל הכנסה.
+ בנוסף, ניתן לראות כי עלויות ה-
+\lang english
+
+\begin_inset Formula $\text{heapify up}$
+\end_inset
+
+
+\lang hebrew
+, יכולות להיות גבוהות מאוד ואכן עדיף להשתמש 
+\lang english
+
+\begin_inset Formula $\text{successive linking}$
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+)רואים זאת בעיקר בניסוי השני, אך גם בשלישי(.
+ ניתן לראות לפי העלות המקסימלית לפעולה את ההבדל בין העלות בניתוח לשיעורין
+ לבין ה
+\lang english
+
+\begin_inset Formula $\text{worst case}$
+\end_inset
+
+
+\lang hebrew
+, בכל שבערימת פיבונאצ'י ובערימה הבינומית העצלה, עלות הפעולה המקסימית היא
+ הגבוהה ביותר )ה- 
+\begin_inset Formula $\text{deleteMin}$
+\end_inset
+
+ לאחר ההכנסות(, אך בסך הכל, כמות הפעולות )לפחות בערימת פיבונאצ'י, בלי ה-
+\lang english
+
+\begin_inset Formula $\text{heapify up}$
+\end_inset
+
+
+\lang hebrew
+, שעלול להיות יקר( נמוכה הרבה יותר מהאחרות.
+ כלומר, מדי פעם משלמים עלות גבוהה הרבה יותר, אך זה קורה רק במקרים "נדירים".
 \end_layout
 
 \begin_layout Subsubsection*
 סעיף ב
+\end_layout
+
+\begin_layout Standard
+התוצאות שקיבלנו מאששות את מה שענינו בסעיף 3.
+ 
+\end_layout
+
+\begin_layout Standard
+ראשית נעיר כי הניתוח בסעיף 3 לגבי ערימה בינומית הוא לפי מה שלמדנו בכיתה
+ ולכן, לפחות בניסוי הראשון )שם אין פעולת 
+\begin_inset Formula $\text{decreaseKey}$
+\end_inset
+
+(, הערימה הבינומית והערימה הבינומית עם הניתוקים דומות מאוד.
+ לכן גם אין קשר אמיתי בין התוצאות שקיבלנו עבור הערימה הבינומית לבין הניתוח
+ בסעיף 3.
+ 
+\end_layout
+
+\begin_layout Standard
+בניסוי הראשון צפינו שהערימה הבינומית העצלה וערימת פיבונאצ'י יהיו מהירות
+ יותר )ואכן שתי הערימות זהות בניסוי הזה באופן יחסית מאחר שלא מבוצע בהן 
+\begin_inset Formula $\text{decreaseKey}$
+\end_inset
+
+(.
+ כך שבמקרה זה החיזוי אכן התממש.
+ נעיר כי מבחינת כמות חיבורים, הייתה כמות דומה מאוד, אך הזמן היה שונה )מאחר
+ שבערימה הבינומית עם ובלי הניתוקים עוברים על כל מערך הסלים בכל הכנסה, גם
+ אם אין חיבורים...(.
+ בנוסף ניתן לראות כפי שהערנו כי הפעולה היקרה היא זהה עבור ערימת פיבונאצ'י
+ והבינומית העצלה, וזאת מפני שברוב הפעולות "משלמים" קצת עד שמגיעה הפעולה
+ היקרה, בניגוד לשתי הערימות האחרות, שם משנים קצת בכל פעולה )כמות חיבורים
+ קטנה בכל 
+\lang english
+
+\begin_inset Formula $\text{successive linking}$
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+(, אבל מבחינת זמן ריצה זה לוקח יותר.
+\end_layout
+
+\begin_layout Standard
+בניסוי השני, החיזוי היה שזמן הריצה יהיה דומה – 
+\begin_inset Formula $(O(n\log n))$
+\end_inset
+
+.
+ ניתן לראות שהזמנים אינם דומים כלל, וניתן להסביר את זה על ידי הקבועים.
+ הקבועים עבור ערימת פיבונאצ'י והערימה הבינומית עם הניתוקים נמוכים מהערימות
+ האחרות, בעיקר עקב ביצוע ה-
+\lang english
+
+\begin_inset Formula $\text{cascading cuts}$
+\end_inset
+
+
+\lang hebrew
+, שחוסך את עלות ה-
+\lang english
+
+\begin_inset Formula $\text{heapify up}$
+\end_inset
+
+
+\lang hebrew
+, שכאן היא מאוד גדולה )כי מחקנו את המינימום – ה-
+\lang english
+
+\begin_inset Formula $\text{heapify up}$
+\end_inset
+
+
+\lang hebrew
+ הוא מקסימלי(.
+ לכן גם זמן הריצה הרבה יותר מהיר עבור שתי הערימות עם ה
+\lang english
+
+\begin_inset Formula $\text{cascading cuts}$
+\end_inset
+
+
+\lang hebrew
+, אם כי ערימת פיבונאצ'י אפילו מהירה יותר מהערימה הבינומית עם הניתוקים עקב
+ ה-
+\begin_inset Formula $\text{lazyMeld}$
+\end_inset
+
+)פעולת ה-
+\begin_inset Formula $\text{decreaseKey}$
+\end_inset
+
+ זולה הרבה יותר בערימת פיבונאצ'י, ולכן גם המחיקות...(.
+ לכן, למרות שיש פער בזמני הריצה, הוא לא סותר את החיזוי התיאורטי, אלא מלמד
+ אותנו שהקבועים בניתוח חשובים לניתוח זמן הריצה בפועל )הניתוח האימפטוטי מעיד
+ על קצת גידול זמן הריצה, ולא על זמן הריצה בפועל(.
+ 
+\end_layout
+
+\begin_layout Standard
+בניסוי השלישי, חזינו כי ערימת פיבונאצ'י תרוץ בזמן הכי מהיר, וזה אכן קרה,
+ אך בפער קטן מאוד מהערימה הבינומית העצלה.
+ אפשר להסביר זאת בכך שההבדל בין שתי הערימות הוא במחיקה, ובעוד שבערימה הבינומית
+ העצלה משלמים בו במקום, בערימת פיבונאצ'י דוחים את התשלום לסוף, ומשלמים הרבה
+ בסוף )ב-
+\begin_inset Formula $\text{deleteMin}$
+\end_inset
+
+ האחרון עוברים על מערך גדול יותר ומבצעים יותר חיבורים(, כך שיוצא שזמן הריצה
+ דומה בין שתי הערימות בסופו של דבר.
+ לעומת זאת, בערימה הבינומית עם הניתוקים ובלי הניתוקים זמן הריצה היה ארוך
+ יותר, כאשר בערימה עם הניתוקים ביצענו הרבה פעמים 
+\lang english
+
+\begin_inset Formula $\text{successive linking}$
+\end_inset
+
+
+\lang hebrew
+( כשגם אם חיברנו מעט, זה עולה אומגה גדולה של 
+\begin_inset Formula $\log n$
+\end_inset
+
+ כפי שציינו(, ובזו בלי הניתוקים, במקום ה-
+\lang english
+
+\begin_inset Formula $\text{successive linking}$
+\end_inset
+
+
+\lang hebrew
+ ב- 
+\begin_inset Formula $\text{decreaseKey}$
+\end_inset
+
+ ביצענו 
+\lang english
+
+\begin_inset Formula $\text{heapify up}$
+\end_inset
+
+
+\lang hebrew
+, מה שגרם לזמנים להיות דומים.
+ 
 \end_layout
 
 \begin_layout Subsubsection*
@@ -7152,17 +7537,36 @@ newpage
 \end_layout
 
 \begin_layout Standard
-ניתן לראות שהעלות המקסימלית לפעולה קטנה בערימה בינומית לעומת ערימה בינומית
- עצלה וערימת פיבונאצי, דבר שמאשש את הניתוח לשיעורין בו יש לנו פעולה יקרה
- ש
-\begin_inset Quotes srd
+כפי שציינו, היו הבדלים בעלות הפעולה המקסימלית, שנובעים מהתכונות של כל ערימה:
+ 
+\end_layout
+
+\begin_layout Standard
+הערימות ש"מסדרות מיד" – הערימה הבינומית עם ובלי הניתוקים, והערימות שדוחות
+ לסוף – הערימה הבנומית העצלה וכמובן שערימת פיבונאצ'י.
+ בערימות אלה הפעולות המקסימליות היו זהות, כיוון שהן בדיוק מבוצעות ב-
+\begin_inset Formula $\text{deleteMin}$
 \end_inset
 
-מכסה
-\begin_inset Quotes srd
+ שאחרי כל ההכנסות.
+ לעומת זאת הערימה הבינומית עם ובלי הניתוקים מבצעות 
+\lang english
+
+\begin_inset Formula $\text{successive linking}$
 \end_inset
 
- על הפעולות הזולות.
+
+\lang hebrew
+ בכל פעם )
+\begin_inset Formula $\text{deleteMin}$
+\end_inset
+
+, 
+\begin_inset Formula $\text{decreaseKey}$
+\end_inset
+
+(, ולכן בכל פעם הערימה יחסית מסודרת, כלומר צריך לבצע פחות שינויים, אך משלמים
+ בזמן ריצה גבוה.
 \end_layout
 
 \begin_layout Standard

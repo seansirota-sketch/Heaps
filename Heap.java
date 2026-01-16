@@ -42,7 +42,8 @@ public class Heap {
      * pre: key > 0
      *
      * Insert (key,info) into the heap and return the newly generated HeapNode.
-     *
+     * WC Time Complexity:
+     * Depending on the meld WC time complexity
      */
     public HeapItem insert(int key, String info) {
         Heap H = new Heap(this.lazyMelds, this.lazyDecreaseKeys);
@@ -62,14 +63,22 @@ public class Heap {
      *
      */
     public HeapItem findMin() {
-        return this.min; // should be replaced by student code
+        return this.min; 
     }
 
 
     /**
+     * Deletes the minimal item.
      * 
-     * Delete the minimal item.
-     *
+     * WC Time Complexity:
+     * - if lazyMelds is false: O(log n)
+     * Since consolidation is performed after every insertion and meld,
+     * the number of roots is strictly maintained at O(log n). Thus,
+     * the successive linking in deleteMin processes only O(log n) roots.
+     * 
+     * - if lazyMelds is true: O(n)
+     * The number of roots can grow up to O(n) between consolidations,
+     * making the worst-case of a single deleteMin proportional to n.
      */
     public void deleteMin() {
         HeapNode z = this.min.node;
@@ -121,6 +130,22 @@ public class Heap {
      * 
      * Decrease the key of x by diff and fix the heap.
      * 
+     * WC Time Complexity:
+     * - if LazyDecreaseKeys is true and Lazymeld is false: O((logn)^2) :
+     * The Time complexity is the (number of cuts) * (WC meld time Complexity)
+     * number of cuts <= log(n) because the Lazymeld stricts the Heap construction
+     * 
+     * - if LazyDecreaseKeys is true and Lazymeld is true: O(n)
+     * The Time complexity is the number of cuts. The Heap doesn't hava strict
+     * construction so it may be O(n)
+     *
+     * - if LazyDecreaseKeys is false and Lazymeld is false: O(logn)
+     * We are doing HeapifyUp with WC Time Complexity of O(logn)
+     * (The heap construction is strict)
+     * 
+     * * - if LazyDecreaseKeys is flase and Lazymeld is true: O(n)
+     * We are doing HeapifyUp with WC Time Complexity of O(n)
+     * (The heap construction is not strict)
      */
     public void decreaseKey(HeapItem x, int diff) {
         if (this.lazyDecreaseKeys) {
@@ -148,7 +173,7 @@ public class Heap {
     /**
      * 
      * Delete the x from the heap.
-     *
+     *  
      */
     public void delete(HeapItem x) {
         this.decreaseKey(x, Integer.MIN_VALUE);
@@ -161,7 +186,9 @@ public class Heap {
      * Meld the heap with heap2
      * pre: heap2.lazyMelds = this.lazyMelds AND heap2.lazyDecreaseKeys =
      * this.lazyDecreaseKeys
-     *
+     * * WC Time Complexity:
+     * - if Lazymeld is false: O(logn) because we are doing successive linking
+     * - if Lazymeld is true: O(1)
      */
     public void meld(Heap heap2) {
         // minimum + size fields updateted through the concat & consolidate methods
@@ -225,7 +252,9 @@ public class Heap {
     /**
      * 
      * Return the total heapify costs.
-     * 
+     * WC Time complexity:
+     * if Lazymeld is false: O(logn) becasue the Heap construction is strict
+     * if Lazymeld is true: O(n) becasue the Heap construction is not strict
      */
     public int totalHeapifyCosts() {
         return this.heapifyCosts; // should be replaced by student code
@@ -292,6 +321,18 @@ public class Heap {
     }
 
 
+    /**
+     * Performs successive linking (consolidation) of the root list.
+     * * WC Time Complexity:
+     * - if lazyMelds is false: O(log n)
+     * Since every operation (insert/meld) maintains a strict binomial-like
+     * structure, the number of roots is always at most O(log n).
+     *
+     * - if lazyMelds is true: O(n)
+     * The heap construction is not strict; roots can accumulate.
+     * In the worst case (e.g., after n inserts), we may have O(n) roots
+     * to process and consolidate.
+     */
     public void consolidate() {
         int maxD = (int) Math.floor(Math.log(this.size) / Math.log(1.618)) + 1;
         HeapNode[] A = new HeapNode[Math.max(maxD + 1, 2)];
@@ -356,6 +397,18 @@ public class Heap {
     }
 
 
+    /**
+     * HeapifyUp
+     * * * WC Time Complexity:
+     * - if Lazymeld is false: O(log n)
+     * The heap construction is strict (binomial-like), so the tree height
+     * (and thus the number of swaps) is bounded by O(log n).
+     *
+     * - if Lazymeld is true: O(n)
+     * The heap construction is not strict. Without periodic successive linking
+     * during melds, the tree can degenerate into a long path (similar to a
+     * linked list), resulting in a depth of O(n).
+     */
     public int heapifyUp(HeapNode x) {
         int count = 0;
         
@@ -385,6 +438,18 @@ public class Heap {
     }
 
 
+    /**
+     * Cuts node x from its parent and adds it to the root list.
+     * WC Time Complexity:
+     * - if Lazymeld is false: O(log n)
+     * Each cut performs a meld. Since Lazymeld is false, every meld triggers
+     * successive linking, which takes O(log n) as the number of roots is kept
+     * logarithmic.
+     *
+     * - if Lazymeld is true: O(1)
+     * Each cut performs a meld. Since Lazymeld is true, meld is a simple
+     * O(1) pointer manipulation (concatenation) without consolidation.
+     */
     public void cut(HeapNode x, HeapNode y) {
         if (y.rank == 1) {
             y.child = null;
@@ -410,6 +475,19 @@ public class Heap {
     }
 
 
+    /**
+     * cascadingCut
+     * * * WC Time Complexity:
+     * - if Lazymeld is false: O(log^2 n)
+     * The recursion depth (number of cuts) is bounded by the tree height, O(log n).
+     * Each cut performs a meld, and since Lazymeld is false, each meld triggers
+     * successive linking which takes O(log n). Total: O(log n * log n).
+     *
+     * - if Lazymeld is true: O(n)
+     * The heap is not strict, so the recursion depth can be O(n).
+     * Each cut performs a meld which takes O(1) in this configuration.
+     * Total: O(n * 1) = O(n).
+     */
     public void cascadingCut(HeapNode y) {
         HeapNode z = y.parent;
         if (z != null) {

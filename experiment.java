@@ -205,7 +205,7 @@ public class experiment {
         // Decrease 10% of max keys to 0
         int n = (int) Math.ceil(464646);
         int last = pointers.length - 1;
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < n/10; i++) {
             BeforeOperation = totalOperationCost(heap);
             heap.decreaseKey(pointers[last], last);
             AfterOperation = totalOperationCost(heap);
